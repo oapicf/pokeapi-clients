@@ -10,7 +10,7 @@
     <h1>PokéAPI</h1>
     <p class="sw-info">
         
-        Version: <span class="sw-info-version">2.7.0</span>,     <a href="https://pokeapi.co/docs/v2" class="sw-external-doc">https://pokeapi.co/docs/v2</a>
+        Version: <span class="sw-info-version">2.10.0</span>,     <a href="https://pokeapi.co/docs/v2" class="sw-external-doc">https://pokeapi.co/docs/v2</a>
     
     </p>
     <p><p>All the Pokémon data you&#39;ll ever need in one place, easily accessible through a modern free open-source RESTful API.</p>
@@ -20,7 +20,7 @@
     <h2 id="where-do-i-start">Where do I start?</h2>
     <p>We have awesome <a href="https://pokeapi.co/docs/v2">documentation</a> on how to use this API. It takes minutes to get started.</p>
     <p>This API will always be publicly available and will never require any extensive setup process to consume.</p>
-    <p>Created by [<strong>Paul Hallett</strong>(]<a href="https://github.com/phalt">https://github.com/phalt</a>) and other <a href="https://github.com/PokeAPI/pokeapi#contributing"><strong>PokéAPI contributors*</strong></a> around the world. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+    <p>Created by <a href="https://github.com/phalt"><strong>Paul Hallett</strong></a> and other <a href="https://github.com/PokeAPI/pokeapi#contributing"><strong>PokéAPI contributors</strong></a> around the world. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
     </p>
     
     
@@ -47,15 +47,17 @@
                 <tbody>
                     <tr>
                         <td><a href="#operation--api-v2-ability--get">GET /api/v2/ability/</a></td>
-                        <td></td>
+                        <td><p>List abilities</p>
+        </td>
                     </tr>
                     <tr>
                         <td><a href="#operation--api-v2-ability--id---get">GET /api/v2/ability/{id}/</a></td>
-                        <td></td>
+                        <td><p>Get ability</p>
+        </td>
                     </tr>
                     <tr>
                         <td><a href="#operation--api-v2-characteristic--get">GET /api/v2/characteristic/</a></td>
-                        <td><p>List charecterictics</p>
+                        <td><p>List characteristics</p>
         </td>
                     </tr>
                     <tr>
@@ -239,6 +241,16 @@
                         <td><p>Get evolution trigger</p>
         </td>
                     </tr>
+                    <tr>
+                        <td><a href="#operation--api-v2-evolution-variable--get">GET /api/v2/evolution-variable/</a></td>
+                        <td><p>List evolution variables</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--api-v2-evolution-variable--id---get">GET /api/v2/evolution-variable/{id}/</a></td>
+                        <td><p>Get evolution variable</p>
+        </td>
+                    </tr>
                 </tbody>
             </table>
             <h3 id="tag-utility" class="swagger-summary-tag">Tag: utility</h3>
@@ -253,6 +265,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td><a href="#operation--api-v2-meta--get">GET /api/v2/meta/</a></td>
+                        <td><p>Get API metadata</p>
+        </td>
+                    </tr>
                     <tr>
                         <td><a href="#operation--api-v2-language--get">GET /api/v2/language/</a></td>
                         <td><p>List languages</p>
@@ -417,6 +434,16 @@
                     <tr>
                         <td><a href="#operation--api-v2-item-pocket--id---get">GET /api/v2/item-pocket/{id}/</a></td>
                         <td><p>Get item pocket</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--api-v2-currency--get">GET /api/v2/currency/</a></td>
+                        <td><p>List currencies</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--api-v2-currency--id---get">GET /api/v2/currency/{id}/</a></td>
+                        <td><p>Get currency</p>
         </td>
                     </tr>
                 </tbody>
@@ -705,7 +732,7 @@
         <span id="path--api-v2-ability-"></span>
             <div id="operation--api-v2-ability--get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
-                    <div class="operation-summary"></div>
+                    <div class="operation-summary">List abilities</div>
                     <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/ability/</strong></h3>
                         Tags:
                             <a href="#tag-pokemon">pokemon</a>
@@ -802,35 +829,13 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
         <span id="path--api-v2-ability--id--"></span>
             <div id="operation--api-v2-ability--id---get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
-                    <div class="operation-summary"></div>
+                    <div class="operation-summary">Get ability</div>
                     <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/ability/{id}/</strong></h3>
                         Tags:
                             <a href="#tag-pokemon">pokemon</a>
@@ -894,28 +899,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -1020,28 +1003,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -1112,28 +1073,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -1238,28 +1177,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -1330,28 +1247,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -1456,28 +1351,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -1549,35 +1422,13 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
         <span id="path--api-v2-characteristic-"></span>
             <div id="operation--api-v2-characteristic--get" class="swagger--panel-operation-get panel">
                 <div class="panel-heading">
-                    <div class="operation-summary">List charecterictics</div>
+                    <div class="operation-summary">List characteristics</div>
                     <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/characteristic/</strong></h3>
                         Tags:
                             <a href="#tag-pokemon">pokemon</a>
@@ -1631,24 +1482,6 @@
                                             <td>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                q
-                                            </td>
-                                            <td><blockquote>
-                                        <p>Only available locally and not at <a href="https://pokeapi.co/docs/v2">pokeapi.co</a>
-                                        Case-insensitive query applied on the <code>name</code> property. </p>
-                                        </blockquote>
-                                        </td>
-                                            <td>query</td>
-                                            <td>
-                                        <span class="json-property-type">object</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                            </td>
-                                        </tr>
                                 </tbody>
                             </table>
                         </section>
@@ -1673,28 +1506,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -1767,28 +1578,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -1849,24 +1638,6 @@
                                             <td>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                q
-                                            </td>
-                                            <td><blockquote>
-                                        <p>Only available locally and not at <a href="https://pokeapi.co/docs/v2">pokeapi.co</a>
-                                        Case-insensitive query applied on the <code>name</code> property. </p>
-                                        </blockquote>
-                                        </td>
-                                            <td>query</td>
-                                            <td>
-                                        <span class="json-property-type">object</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                            </td>
-                                        </tr>
                                 </tbody>
                             </table>
                         </section>
@@ -1891,28 +1662,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -1984,28 +1733,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -2110,28 +1837,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -2203,27 +1908,179 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
+                </div>
+            </div>
+        
+        <span id="path--api-v2-currency-"></span>
+            <div id="operation--api-v2-currency--get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">List currencies</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/currency/</strong></h3>
+                        Tags:
+                            <a href="#tag-items">items</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Currencies used to buy items.</p>
+            
+                    </section>
+            
+                    
+                        <section class="sw-request-params">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                         <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
+                                            <td>
+                                                limit
+                                            </td>
+                                            <td><p>Number of results to return per page.</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
                                             <td>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
+                                            <td>
+                                                offset
+                                            </td>
+                                            <td><p>The initial index from which to return the results.</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                q
+                                            </td>
+                                            <td><blockquote>
+                                        <p>Only available locally and not at <a href="https://pokeapi.co/docs/v2">pokeapi.co</a>
+                                        Case-insensitive query applied on the <code>name</code> property. </p>
+                                        </blockquote>
+                                        </td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
                                             <td>
                                             </td>
                                         </tr>
                                 </tbody>
                             </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--api-v2-currency--id--"></span>
+            <div id="operation--api-v2-currency--id---get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Get currency</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/currency/{id}/</strong></h3>
+                        Tags:
+                            <a href="#tag-items">items</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Currencies used to buy items.</p>
+            
+                    </section>
+            
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                id
+                                            </td>
+                                            <td><p>This parameter can be a string or an integer.</p>
+                                        </td>
+                                            <td>path</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
                         </section>
                 </div>
             </div>
@@ -2328,28 +2185,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -2420,28 +2255,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -2546,28 +2359,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -2638,28 +2429,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -2764,28 +2533,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -2856,28 +2603,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -2982,28 +2707,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -3075,28 +2778,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -3157,24 +2838,6 @@
                                             <td>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                q
-                                            </td>
-                                            <td><blockquote>
-                                        <p>Only available locally and not at <a href="https://pokeapi.co/docs/v2">pokeapi.co</a>
-                                        Case-insensitive query applied on the <code>name</code> property. </p>
-                                        </blockquote>
-                                        </td>
-                                            <td>query</td>
-                                            <td>
-                                        <span class="json-property-type">object</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                            </td>
-                                        </tr>
                                 </tbody>
                             </table>
                         </section>
@@ -3199,28 +2862,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -3292,28 +2933,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -3418,28 +3037,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -3511,27 +3108,179 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
+                </div>
+            </div>
+        
+        <span id="path--api-v2-evolution-variable-"></span>
+            <div id="operation--api-v2-evolution-variable--get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">List evolution variables</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/evolution-variable/</strong></h3>
+                        Tags:
+                            <a href="#tag-evolution">evolution</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Personality_value">Bulbapedia</a> for greater detail.</p>
+            
+                    </section>
+            
+                    
+                        <section class="sw-request-params">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                         <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
+                                            <td>
+                                                limit
+                                            </td>
+                                            <td><p>Number of results to return per page.</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
                                             <td>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
+                                            <td>
+                                                offset
+                                            </td>
+                                            <td><p>The initial index from which to return the results.</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                q
+                                            </td>
+                                            <td><blockquote>
+                                        <p>Only available locally and not at <a href="https://pokeapi.co/docs/v2">pokeapi.co</a>
+                                        Case-insensitive query applied on the <code>name</code> property. </p>
+                                        </blockquote>
+                                        </td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
                                             <td>
                                             </td>
                                         </tr>
                                 </tbody>
                             </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--api-v2-evolution-variable--id--"></span>
+            <div id="operation--api-v2-evolution-variable--id---get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Get evolution variable</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/evolution-variable/{id}/</strong></h3>
+                        Tags:
+                            <a href="#tag-evolution">evolution</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Evolution variables represent parameters (such as Encryption Constant and Personality Value) used in boolean expressions for form-branching evolutions. Check out <a href="https://bulbapedia.bulbagarden.net/wiki/Personality_value">Bulbapedia</a> for greater detail.</p>
+            
+                    </section>
+            
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                id
+                                            </td>
+                                            <td><p>This parameter can be a string or an integer.</p>
+                                        </td>
+                                            <td>path</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
                         </section>
                 </div>
             </div>
@@ -3636,28 +3385,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -3728,28 +3455,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -3854,28 +3559,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -3946,28 +3629,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -4072,28 +3733,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -4164,28 +3803,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -4290,28 +3907,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -4382,28 +3977,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -4508,28 +4081,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -4600,28 +4151,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -4726,28 +4255,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -4818,28 +4325,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -4944,28 +4429,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -5036,28 +4499,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -5162,28 +4603,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -5254,28 +4673,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -5380,28 +4777,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -5472,28 +4847,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -5580,28 +4933,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -5672,28 +5003,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -5798,28 +5107,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -5891,28 +5178,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -5973,24 +5238,6 @@
                                             <td>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                q
-                                            </td>
-                                            <td><blockquote>
-                                        <p>Only available locally and not at <a href="https://pokeapi.co/docs/v2">pokeapi.co</a>
-                                        Case-insensitive query applied on the <code>name</code> property. </p>
-                                        </blockquote>
-                                        </td>
-                                            <td>query</td>
-                                            <td>
-                                        <span class="json-property-type">object</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                            </td>
-                                        </tr>
                                 </tbody>
                             </table>
                         </section>
@@ -6015,28 +5262,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -6109,27 +5334,45 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
+                </div>
+            </div>
+        
+        <span id="path--api-v2-meta-"></span>
+            <div id="operation--api-v2-meta--get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Get API metadata</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/api/v2/meta/</strong></h3>
+                        Tags:
+                            <a href="#tag-utility">utility</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Returns metadata about the current deployed version of the API, including the git commit hash, deploy date, and tag (if any).</p>
+            
+                    </section>
+            
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
                         </section>
                 </div>
             </div>
@@ -6234,28 +5477,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -6326,28 +5547,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -6452,28 +5651,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -6544,28 +5721,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -6670,28 +5825,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -6762,28 +5895,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -6888,28 +5999,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -6980,28 +6069,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -7106,28 +6173,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -7198,28 +6243,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -7324,28 +6347,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -7416,28 +6417,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -7542,28 +6521,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -7634,28 +6591,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -7760,28 +6695,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -7852,28 +6765,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -7978,28 +6869,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -8070,28 +6939,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -8196,28 +7043,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -8288,28 +7113,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -8414,28 +7217,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -8506,28 +7287,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -8632,28 +7391,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -8724,28 +7461,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -8850,28 +7565,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -8942,28 +7635,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -9068,28 +7739,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -9160,28 +7809,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -9286,28 +7913,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -9378,28 +7983,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -9504,28 +8087,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -9596,28 +8157,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -9722,28 +8261,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -9814,28 +8331,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -9940,28 +8435,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -10032,28 +8505,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -10158,28 +8609,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -10251,28 +8680,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -10333,24 +8740,6 @@
                                             <td>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                q
-                                            </td>
-                                            <td><blockquote>
-                                        <p>Only available locally and not at <a href="https://pokeapi.co/docs/v2">pokeapi.co</a>
-                                        Case-insensitive query applied on the <code>name</code> property. </p>
-                                        </blockquote>
-                                        </td>
-                                            <td>query</td>
-                                            <td>
-                                        <span class="json-property-type">object</span>
-                                        <span class="json-property-range" title="Value limits"></span>
-                                        
-                                            </td>
-                                            <td>
-                                            </td>
-                                        </tr>
                                 </tbody>
                             </table>
                         </section>
@@ -10375,28 +8764,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -10468,28 +8835,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -10594,28 +8939,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -10686,28 +9009,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -10812,28 +9113,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -10904,28 +9183,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
@@ -11030,28 +9287,6 @@
                                             </div>                </dd>
                             </dl>
                         </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
-                        </section>
                 </div>
             </div>
         
@@ -11122,28 +9357,6 @@
                                             
                                             </div>                </dd>
                             </dl>
-                        </section>
-                        <section class="sw-request-security">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th class="sw-request-security-schema"></th>
-                                    <th class="sw-request-security-scopes"></th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                        <tr>
-                                            <td><a href="#security-definition-cookieAuth">cookieAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#security-definition-basicAuth">basicAuth</a></td>
-                                            <td>
-                                            </td>
-                                        </tr>
-                                </tbody>
-                            </table>
                         </section>
                 </div>
             </div>
